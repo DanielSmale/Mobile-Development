@@ -13,15 +13,22 @@ namespace BindinAndSlidin
 
         public int sliderValue
         {
+            get => _sliderValue;
+
             set
             {
-
+                if (!value.Equals(_sliderValue))
+                {
+                    _sliderValue = value;
+                    if (PropertyChanged != null)
+                    {
+                        PropertyChanged(this, new PropertyChangedEventArgs("sliderValue"));
+                    }
+                }
             }
-            get
-            {
 
-            }
         }
+
 
     }
 }

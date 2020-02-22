@@ -3,14 +3,34 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                xmlns:local = "clr-namespace:HelloBindings;assembly=HelloBindings"
              mc:Ignorable="d"
              x:Class="BindinAndSlidin.MainPage">
 
+    <!-- A new namespace called local has been made -->
+
+    <ContentPage.BindingContext>
+        <local:MainPageViewModel/>
+        <!--and a class located in local called main page
+        view model is where it should
+        look for its binding context-->
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ColorConverter x:Key ="ColorConv"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+
+        <Label x:Name="MessageLabel"
+               FontSize="Large"
+               Text="{Binding Path=sliderValue}"
+               HorizontalOptions="Center"
+               VerticalOptions="Start"/>
+        
+
     </StackLayout>
 
 </ContentPage>

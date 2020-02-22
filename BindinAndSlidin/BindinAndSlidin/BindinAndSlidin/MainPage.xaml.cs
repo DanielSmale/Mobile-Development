@@ -16,6 +16,8 @@ namespace BindinAndSlidin
         public MainPage()
         {
             InitializeComponent();
+
+
         }
     }
 }
