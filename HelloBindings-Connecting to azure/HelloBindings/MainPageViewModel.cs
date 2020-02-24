@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.ComponentModel;
+using System.Windows.Input;
+using Xamarin.Forms;
 
-namespace BindinAndSlidin
+namespace HelloBindings
 {
-    class MainPageViewModel
+    class MainPageViewModel : INotifyPropertyChanged
     {
         private Model DataModel = new Model();
         public event PropertyChangedEventHandler PropertyChanged;
-
+        
 
         public ICommand ButtonCommand { get; private set; }
 
